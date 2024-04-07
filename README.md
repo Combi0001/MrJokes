@@ -1,11 +1,12 @@
 Random Joke Generator
+View Website: https://joeyawwad.github.io/MrJokes/
 
 The Random Joke Generator is a simple, colorful, and responsive website that serves up a random joke each time a user presses the "Generate Joke" button. Built with HTML, CSS, and vanilla JavaScript, it's designed to be simple enough for beginners to understand while being a fun example of web development basics.
+
 Getting Started
-
 To get a local copy up and running follow these simple steps.
-Prerequisites
 
+Prerequisites
 This project doesn't require any special packages or libraries. A basic web browser is all you need to run the website.
 Installation
 
