@@ -1,28 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Button elements
     const jokeBtn = document.getElementById("jokeBtn");
     const saveFavoriteBtn = document.getElementById("saveFavoriteBtn");
     const darkModeToggle = document.getElementById("darkModeToggle");
 
-    // Event listeners
     jokeBtn.addEventListener("click", generateJoke);
     saveFavoriteBtn.addEventListener("click", saveFavoriteJoke);
     darkModeToggle.addEventListener("click", toggleDarkMode);
 
-    // Load a joke initially and check/update dark mode status
+    // Initialize jokes
     generateJoke();
+    displayStoredJoke('topRatedJoke', 'topRated');
+    displayStoredJoke('jokeOfTheDay', 'jokeOfTheDay');
+
+    // Dark Mode Initial Check
     updateDarkModePreferences();
 });
 
-const jokes = [
-    "Why don't scientists trust atoms? Because they make up everything.",
-    "What do you get when you cross a snowman with a vampire? Frostbite.",
-    // Add more jokes here
-];
-
 function generateJoke() {
-    const jokeIndex = Math.floor(Math.random() * jokes.length);
-    document.getElementById("joke").innerText = jokes[jokeIndex];
+    // Fetches a random joke for the main button click
+    fetchAndStoreJoke('randomJoke', 'joke', false); // The last parameter ensures the joke is not stored
 }
 
 function saveFavoriteJoke() {
@@ -41,6 +37,43 @@ function updateDarkModePreferences() {
     const userPrefersDark = localStorage.getItem('darkMode') === 'true' || window.matchMedia('(prefers-color-scheme: dark)').matches;
     document.body.classList.toggle("dark-mode", userPrefersDark);
     document.getElementById("darkModeToggle").textContent = userPrefersDark ? '☀️' : '🌙';
+}
+
+function fetchAndStoreJoke(key, elementId, store = true) {
+    const apiURL = 'https://v2.jokeapi.dev/joke/Any';
+
+    fetch(apiURL)
+        .then(response => response.json())
+        .then(data => {
+            let jokeText = '';
+            if (data.type === 'single') {
+                jokeText = data.joke;
+            } else {
+                jokeText = `${data.setup} ... ${data.delivery}`;
+            }
+            document.getElementById(elementId).innerText = jokeText;
+            if (store) {
+                // Store joke with timestamp
+                localStorage.setItem(key, JSON.stringify({ joke: jokeText, timestamp: new Date().getTime() }));
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching joke:', error);
+            document.getElementById(elementId).innerText = "Failed to fetch a new joke. Please try again later.";
+        });
+}
+
+function displayStoredJoke(key, elementId) {
+    const jokeData = localStorage.getItem(key);
+    if (jokeData) {
+        const { joke, timestamp } = JSON.parse(jokeData);
+        const hoursPassed = (new Date().getTime() - timestamp) / (1000 * 60 * 60);
+        if (hoursPassed < 24) {
+            document.getElementById(elementId).innerText = joke;
+            return;
+        }
+    }
+    fetchAndStoreJoke(key, elementId);
 }
 
 function shareOnTwitter() {
