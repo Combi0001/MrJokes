@@ -2,13 +2,13 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Comic Sans MS', 'Arial', sans-serif;
-    background-color: #f0f8ff; /* Light mode background */
-    color: #000; /* Light mode text colour */
+    background-color: #f0f8ff;
+    color: #000;
 }
 
 body.dark-mode {
-    background-color: #333; /* Dark mode background */
-    color: #fff; /* Dark mode text colour */
+    background-color: #333;
+    color: #fff;
 }
 
 .container {
@@ -41,57 +41,58 @@ button:hover {
 }
 
 .social-share button {
-    background-color: #55acee; /* Twitter colour */
+    background-color: #55acee;
     margin: 5px;
 }
 
 .social-share button:nth-child(2) {
-    background-color: #3b5998; /* Facebook colour */
+    background-color: #3b5998;
 }
 
 section {
     margin-top: 40px;
     padding: 20px;
-    background-color: #f9f9f9; /* Light mode section background */
+    background-color: #f9f9f9;
     border-radius: 8px;
 }
 
 .dark-mode section {
-    background-color: #424242; /* Dark mode section background */
-    color: #e0e0e0; /* Dark mode section text color */
+    background-color: #424242;
+    color: #e0e0e0;
 }
 
-.rating {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.rating button {
-    font-size: 24px;
-    background: none;
-    color: inherit;
-    border: none;
-    cursor: pointer;
-}
-
-.rating span {
-    margin: 0 10px;
-}
 footer {
     margin-top: 40px;
     padding: 20px;
-    background-color: #f0f8ff; 
-    color: #333; 
+    background-color: #f0f8ff;
+    color: #333;
     text-align: center;
-    border-top: 1px solid #ddd; 
+    border-top: 1px solid #ddd;
 }
 
 footer a {
-    color: #007bff; 
+    color: #007bff;
 }
 
 footer a:hover {
     text-decoration: underline;
+}
+
+.dark-mode-toggle-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+#darkModeToggle {
+    background: none;
+    border: none;
+    font-size: 24px; /* Larger icon for better visibility */
+    cursor: pointer;
+    color: #007bff; /* Adjust color to fit your theme */
+}
+
+#darkModeToggle:hover {
+    color: #0056b3;
 }
