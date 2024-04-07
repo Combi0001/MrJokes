@@ -2,13 +2,13 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Comic Sans MS', 'Arial', sans-serif;
-    background-color: #f0f8ff; /* Light background for light mode */
-    color: #000; /* Dark text for light mode */
+    background-color: #f0f8ff; /* Light mode background */
+    color: #000; /* Light mode text color */
 }
 
 body.dark-mode {
-    background-color: #333; /* Dark background for dark mode */
-    color: #fff; /* Light text for dark mode */
+    background-color: #333; /* Dark mode background */
+    color: #fff; /* Dark mode text color */
 }
 
 .container {
@@ -18,7 +18,7 @@ body.dark-mode {
 
 .logo {
     font-size: 48px;
-    color: #ff6347; /* A vibrant color for the logo */
+    color: #ff6347;
     margin-bottom: 20px;
     font-weight: bold;
     text-shadow: 2px 2px 4px #000000;
@@ -32,7 +32,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Add subtle shadow for depth */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     margin: 5px;
 }
 
@@ -40,6 +40,42 @@ button:hover {
     background-color: #0056b3;
 }
 
-.rating-buttons {
+.social-share button {
+    background-color: #55acee; /* Twitter color */
+    margin: 5px;
+}
+
+.social-share button:nth-child(2) {
+    background-color: #3b5998; /* Facebook color */
+}
+
+section {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f9f9f9; /* Light mode section background */
+    border-radius: 8px;
+}
+
+.dark-mode section {
+    background-color: #424242; /* Dark mode section background */
+    color: #e0e0e0; /* Dark mode section text color */
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 20px;
+}
+
+.rating button {
+    font-size: 24px;
+    background: none;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+.rating span {
+    margin: 0 10px;
 }

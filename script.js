@@ -2,6 +2,9 @@ document.getElementById("jokeBtn").addEventListener("click", generateJoke);
 document.getElementById("saveFavoriteBtn").addEventListener("click", saveFavoriteJoke);
 document.getElementById("darkModeToggle").addEventListener("click", toggleDarkMode);
 
+document.getElementById("thumbsUp").addEventListener("click", () => updateRating(1));
+document.getElementById("thumbsDown").addEventListener("click", () => updateRating(-1));
+
 const jokes = [
     "Why don't scientists trust atoms? Because they make up everything.",
     "What do you get when you cross a snowman with a vampire? Frostbite.",
@@ -9,12 +12,12 @@ const jokes = [
     // Add more jokes here
 ];
 
-let currentRating = 0; // Initializes the current joke's rating
+let currentRating = 0;
 
 function generateJoke() {
     const jokeIndex = Math.floor(Math.random() * jokes.length);
     document.getElementById("joke").innerText = jokes[jokeIndex];
-    resetRating(); // Reset rating every time a new joke is generated
+    resetRating();
 }
 
 function saveFavoriteJoke() {
@@ -25,16 +28,19 @@ function saveFavoriteJoke() {
 
 function toggleDarkMode() {
     document.body.classList.toggle("dark-mode");
-    document.querySelector(".container").classList.toggle("dark-mode");
 }
 
-// Rating system functionality
-document.getElementById("thumbsUp").addEventListener("click", function() {
-    updateRating(1);
-});
-document.getElementById("thumbsDown").addEventListener("click", function() {
-    updateRating(-1);
-});
+function shareOnTwitter() {
+    const joke = document.getElementById("joke").innerText;
+    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(joke + " - via MrJokes.com")}`;
+    window.open(url, '_blank');
+}
+
+function shareOnFacebook() {
+    const joke = document.getElementById("joke").innerText;
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent("MrJokes.com")}&quote=${encodeURIComponent(joke)}`;
+    window.open(url, '_blank');
+}
 
 function updateRating(change) {
     currentRating += change;
@@ -44,23 +50,4 @@ function updateRating(change) {
 function resetRating() {
     currentRating = 0;
     document.getElementById("rating").innerText = currentRating;
-}
-
-window.onload = function() {
-    loadFavoriteJoke();
-    // Check for dark mode preference
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        // Automatically switch to dark mode if preferred by the user's system
-        document.body.classList.add("dark-mode");
-        document.querySelector(".container").classList.add("dark-mode");
-    }
-};
-
-function loadFavoriteJoke() {
-    const favoriteJoke = localStorage.getItem("favoriteJoke");
-    if (favoriteJoke) {
-        document.getElementById("joke").innerText = favoriteJoke;
-    } else {
-        document.getElementById("joke").innerText = "No favorite joke saved. Generate and save one!";
-    }
 }
