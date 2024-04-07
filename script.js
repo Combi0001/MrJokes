@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function generateJoke() {
     // Fetches a random joke for the main button click
-    fetchAndStoreJoke('randomJoke', 'joke', false); // The last parameter ensures the joke is not stored
+    fetchAndStoreJoke('randomJoke', 'joke', false); 
 }
 
 function saveFavoriteJoke() {
@@ -53,7 +53,7 @@ function fetchAndStoreJoke(key, elementId, store = true) {
             }
             document.getElementById(elementId).innerText = jokeText;
             if (store) {
-                // Store joke with timestamp
+                
                 localStorage.setItem(key, JSON.stringify({ joke: jokeText, timestamp: new Date().getTime() }));
             }
         })
