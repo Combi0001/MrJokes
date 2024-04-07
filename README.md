@@ -22,24 +22,38 @@ Usage
 
 Use this project to brighten your day with a random joke! Simply click the "Generate Joke" button to display a new joke.
 
-Roadmap
-Future Updates Chain
+Changelog for Mr Jokes Website
 
-    Version 1.1:
-        Add more jokes to the array for a wider variety.
-        Implement a "share joke" feature, allowing users to share jokes on social media.
+Version 1.0.0 - Initial Release
 
-    Version 1.2:
-        Introduce user-submitted jokes, including a moderation system to ensure content quality.
-        Add animations to enhance the UI/UX.
+    Basic joke generation functionality with a static list of jokes.
+    Basic styling with a responsive design.
 
-    Version 2.0:
-        Migrate to a server-side joke generation model to expand the joke database dynamically.
-        User accounts and customization settings, allowing users to save their favorite jokes.
+Version 1.1.0 - Feature Enhancements
 
-    Version 2.1:
-        Implement an API to allow other developers to fetch jokes for their applications.
-        Internationalization support to reach a wider audience with multilingual jokes.
+    Added a "Save Favorite" feature to allow users to save their favorite joke to local storage.
+    Implemented a dark/light mode toggle for user preference.
+
+Version 1.2.0 - Social Sharing and Ratings
+
+    Added social media sharing buttons for Twitter and Facebook, allowing users to share jokes.
+    Introduced a simple joke rating system with thumbs up and thumbs down buttons.
+
+Version 1.3.0 - Content Expansion and Styling Improvements
+
+    Added new content sections: "Top Rated Jokes", "Joke of the Day", and "About Us" to provide more information and engage users.
+    Updated CSS to ensure new sections adapt to dark/light mode toggle for a cohesive visual experience.
+
+Version 1.4.0 - Accessibility and Usability Enhancements
+
+    Adjusted font sizes and colors for better readability and accessibility.
+    Improved responsiveness for a wider range of devices.
+
+Future Updates (Planned)
+
+    Integrate with a joke API to dynamically fetch and display an ever-changing collection of jokes.
+    Implement user accounts for personalized experience and joke recommendations.
+    Add multilingual support to make the website accessible to a broader audience.
 
 Contributing
 
