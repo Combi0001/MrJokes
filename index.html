@@ -6,6 +6,7 @@
     <title>Mr Jokes - Brighten Your Day with a Laugh!</title>
     <meta name="description" content="Mr Jokes offers a daily dose of humor with a wide range of funny jokes. Share your favorite jokes and bring smiles to faces.">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
  <!-- Dark Mode Toggle Button Container -->
@@ -13,8 +14,12 @@
     <button id="darkModeToggle">🌙</button> <!-- Default icon -->
 </div>
 
+<!-- Logo Container for left alignment -->
+<div class="logo-container">
+    <div class="logo">Mr Jokes</div>
+</div>
+
     <div class="container">
-        <div class="logo">Mr Jokes</div>
         <h1>Welcome to MrJokes.com</h1>
         <p id="joke">Press the button to generate a joke!</p>
         <button id="jokeBtn">Generate Joke</button>
@@ -22,8 +27,8 @@
         
         <!-- Social Media Share Buttons -->
         <div class="social-share">
-            <button onclick="shareOnTwitter()">Share on Twitter</button>
-            <button onclick="shareOnFacebook()">Share on Facebook</button>
+            <button onclick="shareOnTwitter()"><i class="fab fa-twitter"></i></button> <!-- Twitter -->
+            <button onclick="shareOnFacebook()"><i class="fab fa-facebook-f"></i></button> <!-- Facebook -->
         </div>
         
         <!-- Additional Content Sections -->
