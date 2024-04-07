@@ -13,7 +13,7 @@ Installation
 
     sh
 
-    git clone https://github.com/Combi0001/MrJokes.git
+    git clone https://github.com/JoeyAwwad/MrJokes.git
 
     Navigate to the project directory
     Open index.html in your web browser
@@ -59,4 +59,4 @@ Contact
 
 JoeyAwwad - @joeyawwad - joey@ulties.com
 
-Project Link:  https://github.com/Combi0001/MrJokes
+Project Link:  https://github.com/JoeyAwwad/MrJokes
